@@ -48,7 +48,7 @@ public class MySqlTaskDao implements TaskDao {
     /**
      * Agrega una nueva tarea a la base de datos.
      *
-     * @param task La tarea que se va a agregar.
+     * @param task La tarea que se va a agregar a la base de datos.
      */
 
     @Override
@@ -130,9 +130,9 @@ public class MySqlTaskDao implements TaskDao {
     }
 
     /**
-     * Elimina una tarea de la base de datos.
+     * Elimina una tarea de la base de datos utilizando su ID.
      *
-     * @param taskId El ID de la tarea que se va a eliminar.
+     * @param taskId El ID de la tarea que se eliminará de la base de datos.
      */
 
     @Override
@@ -169,6 +169,13 @@ public class MySqlTaskDao implements TaskDao {
         }
     }
 
+    /**
+     * Actualiza el estado de completitud de una tarea en la base de datos.
+     *
+     * @param taskId     El ID de la tarea que se marca como completada o no completada.
+     * @param isCompleted `true` si la tarea se marca como completada, `false` si se marca como no completada.
+     */
+
     public void updateTaskCompletion(int taskId, boolean isCompleted) {
         Connection con = this.databaseConnection.establishConnection();
 
@@ -181,11 +188,11 @@ public class MySqlTaskDao implements TaskDao {
                 preparedStatement.executeUpdate();
 
             } catch (SQLException e) {
-                e.printStackTrace();
+                e.printStackTrace();// Manejo de errores en caso de fallo
             } finally {
                 if (con != null) {
                     try {
-                        con.close();
+                        con.close();// Cierre de la conexión a la base de datos
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }

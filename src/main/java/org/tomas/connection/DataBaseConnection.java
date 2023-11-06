@@ -1,14 +1,11 @@
 package org.tomas.connection;
 
-import org.tomas.todolist.Task;
-
 import javax.swing.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
- * Clase que gestiona la conexion y las operaciones con la base de datos.
+ * Clase que gestiona la conexion con la base de datos.
  */
 public class DataBaseConnection {
 

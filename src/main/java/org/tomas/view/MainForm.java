@@ -240,8 +240,9 @@ public class MainForm {
         }
     }
 
-
-    // Metodo para crear un panel personalizado con campos de entrada
+    /**
+     * Metodo para crear un panel personalizado con campos de entrada
+     */
     private Task createTaskInputPanel(String title, String defaultName, String defaultDescription) {
         JPanel inputPanel = new JPanel(new GridLayout(3, 2));
         JTextField nombreField = new JTextField(defaultName, 20);
