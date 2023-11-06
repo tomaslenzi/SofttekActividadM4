@@ -8,12 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySqlTaskDao implements TaskDao {
-   private final DataBaseConnection databaseConnection;
+    private final DataBaseConnection databaseConnection;
 
     public MySqlTaskDao() {
         this.databaseConnection = new DataBaseConnection();
     }
-
 
     /**
      * Obtiene todas las tareas cargadas en la base de datos.
@@ -43,7 +42,6 @@ public class MySqlTaskDao implements TaskDao {
                 e.printStackTrace();
             }
         }
-
         return tasks;
     }
 
@@ -87,7 +85,6 @@ public class MySqlTaskDao implements TaskDao {
                 }
             }
         }
-
     }
 
     /**
@@ -130,7 +127,6 @@ public class MySqlTaskDao implements TaskDao {
                 }
             }
         }
-
     }
 
     /**
@@ -171,11 +167,10 @@ public class MySqlTaskDao implements TaskDao {
                 }
             }
         }
-
     }
 
     public void updateTaskCompletion(int taskId, boolean isCompleted) {
-        Connection con =this.databaseConnection.establishConnection();
+        Connection con = this.databaseConnection.establishConnection();
 
         if (con != null) {
             try {

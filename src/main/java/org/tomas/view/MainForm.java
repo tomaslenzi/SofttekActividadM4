@@ -1,12 +1,10 @@
 package org.tomas.view;
 
-import org.tomas.connection.DataBaseConnection;
 import org.tomas.dao.MySqlTaskDao;
-import org.tomas.dao.TaskDao;
 import org.tomas.todolist.Task;
 
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,9 +23,6 @@ public class MainForm {
 
     private List<Task> tasks;
     private TaskTableModel taskTableModel;
-
-    //private DataBaseConnection databaseConnection;
-
     private MySqlTaskDao mySqlTaskDao;
 
     public MainForm() {
@@ -35,7 +30,7 @@ public class MainForm {
         // Inicialización
         tasks = new ArrayList<>();
         mySqlTaskDao = new MySqlTaskDao();
-       // databaseConnection = new DataBaseConnection();
+        // databaseConnection = new DataBaseConnection();
         taskTableModel = new TaskTableModel(tasks, mySqlTaskDao);
         table1.setModel(taskTableModel);
 
@@ -195,8 +190,6 @@ public class MainForm {
         } else if (selectedRow != -1) {
             Task selectedTask = tasks.get(selectedRow); // Obtiene la tarea seleccionada
 
-
-
             // Llama al método de eliminación en la instancia de MySqlTaskDao usando el ID de la tarea seleccionada
             int taskIdToDelete = selectedTask.getId();
             mySqlTaskDao.deleteTask(taskIdToDelete);
@@ -231,8 +224,7 @@ public class MainForm {
                     // Actualiza la tarea con los nuevos valores
                     taskToEdit.setName(editedTask.getName());
                     taskToEdit.setDescription(editedTask.getDescription());
-
-
+                    
                     // Actualiza la tarea en la base de datos
                     mySqlTaskDao.updateTask(taskToEdit);
 

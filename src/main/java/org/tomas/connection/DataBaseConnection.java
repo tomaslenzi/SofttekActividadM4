@@ -28,8 +28,6 @@ public class DataBaseConnection {
     public Connection establishConnection() {
         try {
             connection = DriverManager.getConnection(string, user, password);
-            JOptionPane.showMessageDialog(null, "se a conctado jaj");
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo conectar" + e.toString());
         }
