@@ -30,7 +30,6 @@ public class MainForm {
         // Inicialización
         tasks = new ArrayList<>();
         mySqlTaskDao = new MySqlTaskDao();
-        // databaseConnection = new DataBaseConnection();
         taskTableModel = new TaskTableModel(tasks, mySqlTaskDao);
         table1.setModel(taskTableModel);
 
@@ -224,7 +223,7 @@ public class MainForm {
                     // Actualiza la tarea con los nuevos valores
                     taskToEdit.setName(editedTask.getName());
                     taskToEdit.setDescription(editedTask.getDescription());
-                    
+
                     // Actualiza la tarea en la base de datos
                     mySqlTaskDao.updateTask(taskToEdit);
 
